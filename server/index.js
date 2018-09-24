@@ -9,12 +9,12 @@ app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, '../public')));
 
+app.get('/api/chart', (req, res, next) => {
+  console.log('helloooooooooo');
+  res.json(data);
+});
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client/index.html'));
-});
-
-app.get('/api/chart', (req, res, next) => {
-  res.json(data);
 });
 
 app.listen(port, function() {
