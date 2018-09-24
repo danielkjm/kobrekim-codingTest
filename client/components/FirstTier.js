@@ -26,8 +26,9 @@ class FirstTier extends Component {
     return (
       <div className="tier">
         {
-          <div className="card" onClick={this.showTier}>
-            {this.state.data.name}
+          <div className="card-container">
+            <div className="card">{this.state.data.name}</div>
+            <div className="button" onClick={this.showTier} />
           </div>
         }
         {this.state.show ? (

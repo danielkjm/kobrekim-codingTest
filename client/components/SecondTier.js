@@ -16,7 +16,12 @@ class SecondTier extends Component {
     return (
       <div className="second-tier">
         {this.state.data.map(employee => {
-          return <div className="card"> {employee.name}</div>;
+          return (
+            <div className="card-container">
+              <div className="card">{employee.name}</div>
+              <div className="button" onClick={this.showTier} />
+            </div>
+          );
         })}
       </div>
     );

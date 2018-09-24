@@ -193,9 +193,13 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tier"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card",
+        className: "card-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card"
+      }, this.state.data.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "button",
         onClick: this.showTier
-      }, this.state.data.name), this.state.show ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SecondTier__WEBPACK_IMPORTED_MODULE_2__["default"], null)) : null);
+      })), this.state.show ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SecondTier__WEBPACK_IMPORTED_MODULE_2__["default"], null)) : null);
     }
   }]);
 
@@ -407,12 +411,19 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "second-tier"
       }, this.state.data.map(function (employee) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card"
-        }, " ", employee.name);
+        }, employee.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "button",
+          onClick: _this2.showTier
+        }));
       }));
     }
   }]);
