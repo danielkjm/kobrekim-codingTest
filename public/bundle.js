@@ -308,7 +308,9 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chart"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FirstTier__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "title"
+      }, "Kobre&Kim - The Team"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FirstTier__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
@@ -334,6 +336,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -346,13 +350,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
@@ -369,8 +373,12 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SecondTier).call(this));
     _this.state = {
-      data: []
+      tier2data: [],
+      tier3data: [],
+      vp: false,
+      gm: false
     };
+    _this.tier = _this.tier.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -393,7 +401,7 @@ function (_Component) {
                 _ref = _context.sent;
                 data = _ref.data;
                 this.setState({
-                  data: data
+                  tier2data: data
                 });
 
               case 5:
@@ -409,21 +417,38 @@ function (_Component) {
       };
     }()
   }, {
+    key: "tier",
+    value: function tier(manager) {
+      var bool = this.state[manager];
+      console.log(manager);
+      this.setState(_defineProperty({}, manager, !bool));
+      console.log(this.state.vp);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "second-tier"
-      }, this.state.data.map(function (employee) {
+      }, this.state.tier2data.map(function (employee) {
+        var title = employee.title === 'Vice President' ? 'vp' : 'gm';
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card"
         }, employee.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "button",
-          onClick: _this2.showTier
-        }));
+          onClick: function onClick() {
+            return _this2.tier(title);
+          }
+        }), _this2.state[title] ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "team"
+        }, employee.manager.map(function (employee) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "card"
+          }, employee.name);
+        })) : null);
       }));
     }
   }]);

@@ -17,6 +17,7 @@ class Main extends Component {
   render() {
     return (
       <div className="chart">
+        <div className="title">Kobre&#38;Kim - The Team</div>
         <FirstTier />
       </div>
     );
