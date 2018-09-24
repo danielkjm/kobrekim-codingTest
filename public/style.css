@@ -1,8 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .chart {
-  top: 50%;
-  left: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  text-align: center;
+  top: 100px;
   font-size: 20px;
   color: black;
-  width: 500px;
-  height: 500px;
+  border: 1px black solid;
+  padding: 20px;
+  margin: 20px;
+  cursor: pointer;
+}
+.tier {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-tier {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

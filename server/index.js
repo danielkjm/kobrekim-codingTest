@@ -9,10 +9,14 @@ app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/api/chart', (req, res, next) => {
-  console.log('helloooooooooo');
-  res.json(data);
+app.get('/api/president', (req, res, next) => {
+  res.json(data[0]);
 });
+
+app.get('/api/secondTier', (req, res, next) => {
+  res.json(data[0].manager);
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client/index.html'));
 });

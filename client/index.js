@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Organization from './components/Organization';
+import Main from './components/Main';
 
-ReactDOM.render(<Organization />, document.getElementById('app'));
+ReactDOM.render(<Main />, document.getElementById('app'));
