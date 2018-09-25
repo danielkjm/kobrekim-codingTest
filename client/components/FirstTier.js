@@ -28,14 +28,13 @@ class FirstTier extends Component {
         {
           <div className="card-container">
             <div className="card">{this.state.data.name}</div>
-            <div className="button" onClick={this.showTier} />
+            <div
+              className={this.state.show ? 'button-down up' : 'button-down'}
+              onClick={this.showTier}
+            />
           </div>
         }
-        {this.state.show ? (
-          <div>
-            <SecondTier />
-          </div>
-        ) : null}
+        {this.state.show ? <SecondTier /> : null}
       </div>
     );
   }

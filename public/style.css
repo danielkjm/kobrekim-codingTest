@@ -29,34 +29,43 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  width: 100%;
 }
+
 .card-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 38%;
 }
 .card {
   position: relative;
-  text-align: center;
   font-size: 20px;
   color: black;
   border: 1px black solid;
   padding: 50px;
-  margin: 20px;
+  margin: 20px 30px 20px 30px;
   cursor: pointer;
 }
+
 .team {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.button {
+.button-down {
   width: 0;
   height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 8px solid rgb(29, 29, 29);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid rgb(29, 29, 29);
   cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.up {
+  transition: all 0.4s ease;
+  transform: rotate(180deg);
 }

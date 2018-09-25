@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ThirdTier from './ThirdTier';
 
 class SecondTier extends Component {
   constructor() {
@@ -15,9 +16,7 @@ class SecondTier extends Component {
 
   tier(manager) {
     let bool = this.state[manager];
-    console.log(manager);
     this.setState({ [manager]: !bool });
-    console.log(this.state.vp);
   }
 
   render() {
@@ -26,16 +25,13 @@ class SecondTier extends Component {
         {this.state.tier2data.map(employee => {
           let title = employee.title === 'Vice President' ? 'vp' : 'gm';
           return (
-            <div className="card-container">
+            <div key={employee.name} className="card-container">
               <div className="card">{employee.name}</div>
-              <div className="button" onClick={() => this.tier(title)} />
-              {this.state[title] ? (
-                <div className="team">
-                  {employee.manager.map(employee => {
-                    return <div className="card">{employee.name}</div>;
-                  })}
-                </div>
-              ) : null}
+              <div
+                className={this.state[title] ? 'button-down up' : 'button-down'}
+                onClick={() => this.tier(title)}
+              />
+              {this.state[title] ? <ThirdTier employee={employee} /> : null}
             </div>
           );
         })}

@@ -4,22 +4,40 @@ import axios from 'axios';
 class ThirdTier extends Component {
   constructor() {
     super();
-    this.state = { data: [] };
+    this.state = {
+      team: [],
+      0: false,
+      1: false,
+      2: false,
+      3: false,
+      4: false
+    };
   }
-
-  async componentDidMount() {
-    const { data } = await axios.get('/api/secondTier');
-    this.setState({ data });
+  fourthTier(id) {
+    let bool = this.state[id];
+    this.setState({ [id]: !bool });
   }
 
   render() {
     return (
-      <div className="third-tier">
-        {this.state.data.map(employee => {
+      <div className="team">
+        {this.props.employee.manager.map((employee, i, array) => {
           return (
-            <div className="card-container">
+            <div key={employee.name} className="card-container">
               <div className="card">{employee.name}</div>
-              <div className="button" onClick={this.showTier} />
+              {employee.manager ? (
+                <div
+                  className={this.state[i] ? 'button-down up' : 'button-down'}
+                  onClick={() => this.fourthTier(i)}
+                />
+              ) : null}
+              {this.state[i] ? (
+                <div>
+                  {employee.manager.map(member => {
+                    return <div className="card">{member.name}</div>;
+                  })}
+                </div>
+              ) : null}
             </div>
           );
         })}
