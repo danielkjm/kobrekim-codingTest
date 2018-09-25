@@ -7,9 +7,11 @@ class FirstTier extends Component {
     super();
     this.state = {
       data: {},
-      show: false
+      show: false,
+      flip: false
     };
     this.showTier = this.showTier.bind(this);
+    this.flipCard = this.flipCard.bind(this);
   }
 
   async componentDidMount() {
@@ -21,23 +23,32 @@ class FirstTier extends Component {
     let bool = this.state.show;
     this.setState({ show: !bool });
   }
+  flipCard() {
+    let bool = !this.state.flip;
+    this.setState({ flip: bool });
+  }
 
   render() {
     return (
       <div className="tier">
         {
           <div className="card-container">
-            <div className="card">
-              <img className="avatar" src="/avatars/glasses.png" />
-
-              {this.state.data.name}
-            </div>
             <div
-              className={this.state.show ? 'button-down up' : 'button-down'}
-              onClick={this.showTier}
-            />
+              className={this.state.flip ? 'card flipped' : 'card'}
+              onClick={this.flipCard}
+            >
+              <div className="card-front">
+                <img className="avatar" src="/avatars/glasses.png" />
+                {this.state.data.name}
+              </div>
+              <div className="card-back">hello</div>
+            </div>
           </div>
         }
+        <div
+          className={this.state.show ? 'button-down up' : 'button-down'}
+          onClick={this.showTier}
+        />
         {this.state.show ? <SecondTier /> : null}
       </div>
     );

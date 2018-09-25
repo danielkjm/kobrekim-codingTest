@@ -139,9 +139,11 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(FirstTier).call(this));
     _this.state = {
       data: {},
-      show: false
+      show: false,
+      flip: false
     };
     _this.showTier = _this.showTier.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.flipCard = _this.flipCard.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -188,6 +190,14 @@ function (_Component) {
       });
     }
   }, {
+    key: "flipCard",
+    value: function flipCard() {
+      var bool = !this.state.flip;
+      this.setState({
+        flip: bool
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -195,14 +205,19 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card"
+        className: this.state.flip ? 'card flipped' : 'card',
+        onClick: this.flipCard
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-front"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "avatar",
         src: "/avatars/glasses.png"
       }), this.state.data.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-back"
+      }, "hello"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.show ? 'button-down up' : 'button-down',
         onClick: this.showTier
-      })), this.state.show ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SecondTier__WEBPACK_IMPORTED_MODULE_2__["default"], null) : null);
+      }), this.state.show ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SecondTier__WEBPACK_IMPORTED_MODULE_2__["default"], null) : null);
     }
   }]);
 
