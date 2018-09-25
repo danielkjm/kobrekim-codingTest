@@ -44,6 +44,7 @@ class SecondTier extends Component {
                 onClick={() => this.flipCard(i)}
               >
                 <div className="card-front">
+                  <div className="role">{employee.title}</div>
                   <img
                     className="avatar"
                     src={i === 0 ? '/avatars/stache.png' : '/avatars/lady.svg'}

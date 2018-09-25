@@ -38,6 +38,7 @@ class FirstTier extends Component {
               onClick={this.flipCard}
             >
               <div className="card-front">
+                <div className="role">{this.state.data.title}</div>
                 <img className="avatar" src="/avatars/glasses.png" />
                 {this.state.data.name}
               </div>

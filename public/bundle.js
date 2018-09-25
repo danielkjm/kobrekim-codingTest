@@ -209,7 +209,9 @@ function (_Component) {
         onClick: this.flipCard
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-front"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "role"
+      }, this.state.data.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "avatar",
         src: "/avatars/glasses.png"
       }), this.state.data.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -543,7 +545,9 @@ function (_Component) {
           }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card-front"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "role"
+        }, employee.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "avatar",
           src: i === 0 ? '/avatars/stache.png' : '/avatars/lady.svg'
         }), employee.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -597,13 +601,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
@@ -622,20 +626,30 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ThirdTier).call(this));
     _this.state = {
       team: [],
-      0: false,
-      1: false,
-      2: false,
-      3: false,
+      0: [false, false],
+      1: [false, false],
+      2: [false, false],
+      3: [false, false],
       4: false
     };
+    _this.fourthTier = _this.fourthTier.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.flipCard = _this.flipCard.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
   _createClass(ThirdTier, [{
     key: "fourthTier",
     value: function fourthTier(id) {
-      var bool = this.state[id];
-      this.setState(_defineProperty({}, id, !bool));
+      var first = this.state[id][0];
+      var bool = this.state[id][1];
+      this.setState(_defineProperty({}, id, [first, !bool]));
+    }
+  }, {
+    key: "flipCard",
+    value: function flipCard(card) {
+      var otherBool = this.state[card][1];
+      var bool = !this.state[card][0];
+      this.setState(_defineProperty({}, card, [bool, otherBool]));
     }
   }, {
     key: "render",
@@ -649,16 +663,29 @@ function (_Component) {
           key: employee.name,
           className: "card-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "card"
-        }, ' ', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: _this2.state[i][0] ? 'card third flipped' : 'card third',
+          onClick: function onClick() {
+            return _this2.flipCard(i);
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card-front"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "role"
+        }, employee.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "avatar",
           src: i === 0 ? '/avatars/mystery.png' : '/avatars/myst.png'
-        }), employee.name), employee.manager ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: _this2.state[i] ? 'button-down up' : 'button-down',
+        }), employee.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card-back"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "back-info1"
+        }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", employee.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "back-info2"
+        }, "Office"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, employee.office))), employee.manager ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: _this2.state[i][1] ? 'button-down up' : 'button-down',
           onClick: function onClick() {
             return _this2.fourthTier(i);
           }
-        }) : null, _this2.state[i] ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FourthTier__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        }) : null, _this2.state[i][1] ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FourthTier__WEBPACK_IMPORTED_MODULE_2__["default"], {
           employee: employee
         }) : null);
       }));
