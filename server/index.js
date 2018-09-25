@@ -9,12 +9,12 @@ app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/api/president', (req, res, next) => {
-  res.json(data[0]);
+app.get('/api/president', async (req, res, next) => {
+  await res.json(data[0]);
 });
 
-app.get('/api/secondTier', (req, res, next) => {
-  res.json(data[0].manager);
+app.get('/api/secondTier', async (req, res, next) => {
+  await res.json(data[0].manager);
 });
 
 app.get('*', (req, res) => {

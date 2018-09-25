@@ -215,9 +215,9 @@ function (_Component) {
       }), this.state.data.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-back"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "back-info"
+        className: "back-info1"
       }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", this.state.data.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "back-info"
+        className: "back-info2"
       }, "Office"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.data.office)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.show ? 'button-down up' : 'button-down',
         onClick: this.showTier
@@ -469,9 +469,12 @@ function (_Component) {
       tier2data: [],
       tier3data: [],
       vp: false,
-      gm: false
+      gm: false,
+      0: false,
+      1: false
     };
     _this.tier = _this.tier.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.flipCard = _this.flipCard.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -516,6 +519,12 @@ function (_Component) {
       this.setState(_defineProperty({}, manager, !bool));
     }
   }, {
+    key: "flipCard",
+    value: function flipCard(card) {
+      var bool = !this.state[card];
+      this.setState(_defineProperty({}, card, bool));
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -528,11 +537,22 @@ function (_Component) {
           key: employee.name,
           className: "card-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "card"
+          className: _this2.state[i] ? 'card flipped' : 'card',
+          onClick: function onClick() {
+            return _this2.flipCard(i);
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card-front"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "avatar",
           src: i === 0 ? '/avatars/stache.png' : '/avatars/lady.svg'
         }), employee.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card-back"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "back-info1"
+        }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", employee.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "back-info2"
+        }, "Office"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, employee.office))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: _this2.state[title] ? 'button-down up' : 'button-down',
           onClick: function onClick() {
             return _this2.tier(title);

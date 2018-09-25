@@ -42,9 +42,9 @@ class FirstTier extends Component {
                 {this.state.data.name}
               </div>
               <div className="card-back">
-                <div className="back-info">Email</div>
+                <div className="back-info1">Email</div>
                 <div> {this.state.data.email}</div>
-                <div className="back-info">Office</div>
+                <div className="back-info2">Office</div>
                 <div>{this.state.data.office}</div>
               </div>
             </div>

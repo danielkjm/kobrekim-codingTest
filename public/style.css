@@ -116,10 +116,17 @@
   align-items: center;
 }
 
-.back-info {
+.back-info1 {
   font-weight: 600;
-  margin: 10px;
+  margin-bottom: 7px;
 }
+
+.back-info2 {
+  font-weight: 600;
+  margin-bottom: 7px;
+  margin-top: 16px;
+}
+
 .team {
   display: flex;
   justify-content: center;
