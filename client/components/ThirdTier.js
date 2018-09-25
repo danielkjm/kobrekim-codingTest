@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import FourthTier from './FourthTier';
 class ThirdTier extends Component {
   constructor() {
     super();
@@ -24,20 +24,21 @@ class ThirdTier extends Component {
         {this.props.employee.manager.map((employee, i, array) => {
           return (
             <div key={employee.name} className="card-container">
-              <div className="card">{employee.name}</div>
+              <div className="card">
+                {' '}
+                <img
+                  className="avatar"
+                  src={i === 0 ? '/avatars/mystery.png' : '/avatars/myst.png'}
+                />
+                {employee.name}
+              </div>
               {employee.manager ? (
                 <div
                   className={this.state[i] ? 'button-down up' : 'button-down'}
                   onClick={() => this.fourthTier(i)}
                 />
               ) : null}
-              {this.state[i] ? (
-                <div>
-                  {employee.manager.map(member => {
-                    return <div className="card">{member.name}</div>;
-                  })}
-                </div>
-              ) : null}
+              {this.state[i] ? <FourthTier employee={employee} /> : null}
             </div>
           );
         })}

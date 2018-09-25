@@ -196,7 +196,10 @@ function (_Component) {
         className: "card-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
-      }, this.state.data.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "avatar",
+        src: "/avatars/glasses.png"
+      }), this.state.data.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.show ? 'button-down up' : 'button-down',
         onClick: this.showTier
       })), this.state.show ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SecondTier__WEBPACK_IMPORTED_MODULE_2__["default"], null) : null);
@@ -207,6 +210,75 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (FirstTier);
+
+/***/ }),
+
+/***/ "./client/components/FourthTier.js":
+/*!*****************************************!*\
+  !*** ./client/components/FourthTier.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _SecondTier__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SecondTier */ "./client/components/SecondTier.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var FourthTier =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(FourthTier, _Component);
+
+  function FourthTier() {
+    var _this;
+
+    _classCallCheck(this, FourthTier);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(FourthTier).call(this));
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(FourthTier, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.employee.manager.map(function (member) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card"
+        }, member.name);
+      }));
+    }
+  }]);
+
+  return FourthTier;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (FourthTier);
 
 /***/ }),
 
@@ -310,7 +382,7 @@ function (_Component) {
         className: "chart"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "title"
-      }, "Kobre&Kim - The Team"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FirstTier__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, "Kobre&Kim - Meet The Team"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FirstTier__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
@@ -431,14 +503,17 @@ function (_Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "second-tier"
-      }, this.state.tier2data.map(function (employee) {
+      }, this.state.tier2data.map(function (employee, i) {
         var title = employee.title === 'Vice President' ? 'vp' : 'gm';
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: employee.name,
           className: "card-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card"
-        }, employee.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "avatar",
+          src: i === 0 ? '/avatars/stache.png' : '/avatars/lady.svg'
+        }), employee.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: _this2.state[title] ? 'button-down up' : 'button-down',
           onClick: function onClick() {
             return _this2.tier(title);
@@ -470,6 +545,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _FourthTier__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FourthTier */ "./client/components/FourthTier.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -489,6 +565,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -534,16 +611,17 @@ function (_Component) {
           className: "card-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card"
-        }, employee.name), employee.manager ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, ' ', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "avatar",
+          src: i === 0 ? '/avatars/mystery.png' : '/avatars/myst.png'
+        }), employee.name), employee.manager ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: _this2.state[i] ? 'button-down up' : 'button-down',
           onClick: function onClick() {
             return _this2.fourthTier(i);
           }
-        }) : null, _this2.state[i] ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, employee.manager.map(function (member) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "card"
-          }, member.name);
-        })) : null);
+        }) : null, _this2.state[i] ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FourthTier__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          employee: employee
+        }) : null);
       }));
     }
   }]);

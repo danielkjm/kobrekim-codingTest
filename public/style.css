@@ -3,26 +3,36 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .title {
   text-align: center;
+  font-family: 'Quicksand', sans-serif;
   font-size: 40px;
   margin-bottom: 3rem;
   border-bottom: 1px solid black;
   padding: 30px;
+  width: 100%;
+}
+
+.about {
+  width: 30%;
+  text-align: center;
 }
 .chart {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-
-  height: 100vh;
+  height: 100%;
+  width: 100%;
 }
 
 .tier {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  top: 5%;
+  margin-bottom: 40px;
 }
 
 .second-tier {
@@ -39,14 +49,33 @@
   align-items: center;
   width: 38%;
 }
+
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
   font-size: 20px;
   color: black;
-  border: 1px black solid;
-  padding: 50px;
+  border: 1px rgb(43, 43, 43) solid;
+  padding: 40px;
   margin: 20px 30px 20px 30px;
   cursor: pointer;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.card:hover,
+.card:focus,
+.card:active {
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 
 .team {
@@ -60,7 +89,7 @@
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid rgb(29, 29, 29);
+  border-top: 10px solid rgba(43, 43, 43, 0.808);
   cursor: pointer;
   transition: all 0.4s ease;
 }
@@ -68,4 +97,10 @@
 .up {
   transition: all 0.4s ease;
   transform: rotate(180deg);
+}
+
+.avatar {
+  width: 60px;
+  height: 70px;
+  margin-bottom: 20px;
 }

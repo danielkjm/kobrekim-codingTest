@@ -27,7 +27,11 @@ class FirstTier extends Component {
       <div className="tier">
         {
           <div className="card-container">
-            <div className="card">{this.state.data.name}</div>
+            <div className="card">
+              <img className="avatar" src="/avatars/glasses.png" />
+
+              {this.state.data.name}
+            </div>
             <div
               className={this.state.show ? 'button-down up' : 'button-down'}
               onClick={this.showTier}

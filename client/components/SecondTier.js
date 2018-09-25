@@ -22,11 +22,17 @@ class SecondTier extends Component {
   render() {
     return (
       <div className="second-tier">
-        {this.state.tier2data.map(employee => {
+        {this.state.tier2data.map((employee, i) => {
           let title = employee.title === 'Vice President' ? 'vp' : 'gm';
           return (
             <div key={employee.name} className="card-container">
-              <div className="card">{employee.name}</div>
+              <div className="card">
+                <img
+                  className="avatar"
+                  src={i === 0 ? '/avatars/stache.png' : '/avatars/lady.svg'}
+                />
+                {employee.name}
+              </div>
               <div
                 className={this.state[title] ? 'button-down up' : 'button-down'}
                 onClick={() => this.tier(title)}
