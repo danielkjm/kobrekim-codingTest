@@ -214,7 +214,11 @@ function (_Component) {
         src: "/avatars/glasses.png"
       }), this.state.data.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-back"
-      }, "hello"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "back-info"
+      }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", this.state.data.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "back-info"
+      }, "Office"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.data.office)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.show ? 'button-down up' : 'button-down',
         onClick: this.showTier
       }), this.state.show ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SecondTier__WEBPACK_IMPORTED_MODULE_2__["default"], null) : null);

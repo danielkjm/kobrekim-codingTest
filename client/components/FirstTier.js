@@ -41,7 +41,12 @@ class FirstTier extends Component {
                 <img className="avatar" src="/avatars/glasses.png" />
                 {this.state.data.name}
               </div>
-              <div className="card-back">hello</div>
+              <div className="card-back">
+                <div className="back-info">Email</div>
+                <div> {this.state.data.email}</div>
+                <div className="back-info">Office</div>
+                <div>{this.state.data.office}</div>
+              </div>
             </div>
           </div>
         }
