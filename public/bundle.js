@@ -250,6 +250,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SecondTier__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SecondTier */ "./client/components/SecondTier.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -258,13 +260,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
@@ -281,17 +283,51 @@ function (_Component) {
     _classCallCheck(this, FourthTier);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(FourthTier).call(this));
-    _this.state = {};
+    _this.state = {
+      0: false,
+      1: false,
+      3: false,
+      4: false,
+      5: false,
+      6: false,
+      7: false
+    };
+    _this.flipCard = _this.flipCard.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
   _createClass(FourthTier, [{
+    key: "flipCard",
+    value: function flipCard(card) {
+      var bool = !this.state[card];
+      this.setState(_defineProperty({}, card, bool));
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.employee.manager.map(function (member) {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.employee.manager.map(function (member, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "card"
-        }, member.name);
+          key: member.name,
+          className: _this2.state[i] ? 'card third flipped' : 'card third',
+          onClick: function onClick() {
+            return _this2.flipCard(i);
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card-front"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "role"
+        }, member.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "avatar",
+          src: i % 2 === 0 ? '/avatars/mystery.png' : '/avatars/myst.png'
+        }), member.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card-back"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "back-info1"
+        }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", member.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "back-info2"
+        }, "Office"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.office)));
       }));
     }
   }]);
@@ -640,9 +676,11 @@ function (_Component) {
   _createClass(ThirdTier, [{
     key: "fourthTier",
     value: function fourthTier(id) {
+      console.log(id);
+      console.log(this.state[id]);
       var first = this.state[id][0];
-      var bool = this.state[id][1];
-      this.setState(_defineProperty({}, id, [first, !bool]));
+      var bool = !this.state[id][1];
+      this.setState(_defineProperty({}, id, [first, bool]));
     }
   }, {
     key: "flipCard",

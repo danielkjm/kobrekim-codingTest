@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import FourthTier from './FourthTier';
+
 class ThirdTier extends Component {
   constructor() {
     super();
@@ -17,9 +18,11 @@ class ThirdTier extends Component {
   }
 
   fourthTier(id) {
+    console.log(id);
+    console.log(this.state[id]);
     let first = this.state[id][0];
-    let bool = this.state[id][1];
-    this.setState({ [id]: [first, !bool] });
+    let bool = !this.state[id][1];
+    this.setState({ [id]: [first, bool] });
   }
 
   flipCard(card) {
