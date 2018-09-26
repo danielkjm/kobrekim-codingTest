@@ -74,9 +74,9 @@
   padding: 40px;
   margin: 20px 20px 20px 20px;
   cursor: pointer;
-  -webkit-transition: -webkit-transform 0.4s;
-  -moz-transition: -moz-transform 0.4s;
-  -o-transition: -o-transform 0.4s;
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  -o-transition: -o-transform 0.3s;
 
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -85,6 +85,10 @@
 
   -webkit-transform-origin: 50% 50%;
 }
+.card:hover {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
 
 .card.flipped {
   -webkit-transform: rotateY(180deg);
@@ -92,7 +96,6 @@
   -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
-
 .card.third {
   width: 206px;
   height: 193px;
